@@ -86,7 +86,7 @@ No stats yet!
 
 Let's enhance `SentenceStatsController.java` a little more to take in a sentence and return the sentence back
 
-```
+```java
 package com.apm4all.sentencestats;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -100,7 +100,6 @@ public class SentenceStatsController {
         return sentence + "\n";
     }
 }
-
 ```
 
 After re-build and re-run, when we pass in a sentence, the service returns the sentence back
@@ -109,8 +108,6 @@ After re-build and re-run, when we pass in a sentence, the service returns the s
 curl "http://localhost:8080/sentence-stats/hello%20world"
 hello world
 ```
-
-
 
 
 
