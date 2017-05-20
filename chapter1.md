@@ -14,7 +14,7 @@ mvn clean package
 
 an execute it
 
-```
+```bash
 mvn spring-boot:run
 ```
 
