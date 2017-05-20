@@ -80,8 +80,8 @@ mvn spring-boot:run
 Now, that you have exposed the _word-count_ REST resource, you can access it using curl, as follows
 
 ```
-curl http://localhost:8080/word-count
-Counting nothing yet!
+curl http://localhost:8080/sentence-stats
+No stats yet!
 ```
 
 
