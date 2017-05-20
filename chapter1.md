@@ -65,7 +65,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SentenceStatsController {
     @RequestMapping("/sentence-stats")
-    public String sentencestats()   {
+    public String sentenceStats()   {
         return "No stats yet!\n";
     }
 }
