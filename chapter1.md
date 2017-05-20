@@ -15,6 +15,7 @@ spring init -d=web -groupId=com.apm4all -artifactId=sentencestats sentencestats
 This application does not do much yet, but you can build it.
 
 ```
+cd sentencestats
 mvn clean package
 ```
 
@@ -47,25 +48,25 @@ All going well you will see output as follows
     2017-05-20 13:35:05.908  INFO 84795 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
     2017-05-20 13:35:05.912  INFO 84795 --- [           main] com.apm4all.wordcount.DemoApplication    : Started DemoApplication in 2.014 seconds (JVM running for 4.3)
 
-So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a WordCountController
+So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`
 
 ```
-touch ./src/main/java/com/apm4all/wordcount/WordCountController.java
+touch ./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java
 ```
 
 Now create the `WordCountController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
 
 ```java
-package com.apm4all.wordcount;
+package com.apm4all.sentencestats;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class WordCountController {
-    @RequestMapping("/word-count")
-    public String wordcount()   {
-        return "Counting nothing yet!\n";
+public class SentenceStatsController {
+    @RequestMapping("/sentence-stats")
+    public String sentencestats()   {
+        return "No stats yet!\n";
     }
 }
 ```
