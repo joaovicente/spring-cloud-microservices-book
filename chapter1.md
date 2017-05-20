@@ -54,7 +54,7 @@ So the application runs but is does not do anything useful, so lets stop the app
 touch ./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java
 ```
 
-Now create the `WordCountController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
+Now create the `SentenceStatsController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
 
 ```java
 package com.apm4all.sentencestats;
