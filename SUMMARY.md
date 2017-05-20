@@ -1,3 +1,6 @@
-# Table of content
+# Summary
 
-* [First Chapter](chapter1.md)
+* [Introduction](README.md)
+* [Installing Spring Boot](installing-spring-boot.md)
+* [A simple web app](chapter1.md)
+
