@@ -49,7 +49,7 @@ touch ./src/main/java/com/apm4all/wordcount/WordCountController.java
 
 Not create the class and define the class as a @RestController and add the @RequestMapping handler method as shown below
 
-```
+```java
 package com.apm4all.wordcount;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,5 +64,5 @@ public class WordCountController {
 }
 ```
 
-When you run 
+When you run
 
