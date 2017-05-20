@@ -12,17 +12,12 @@ We will write a sentence-stats service which given a sentence, will call other s
 
 We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
 
-Loosely couple services using Eureka Auto Discover service
-
-Leverage the client load balancing capabilities using Ribbon
-
-Show how you can protect your services using Circuit Breakers
-
-Package and compose all microservices using Docker containers
-
-Introduce an API gateway which can both do routing using Zuul
-
-Illustrate how to  Hystrix
+* Loosely couple services using Eureka Auto Discover service
+* Leverage the client load balancing capabilities using Ribbon
+* Show how you can protect your services using Circuit Breakers
+* Package and compose all microservices using Docker containers
+* Introduce an API gateway which can both do routing using Zuul
+* Illustrate how to assess health and protect your services using Hystrix
 
 
 
