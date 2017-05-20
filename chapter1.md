@@ -6,7 +6,13 @@ After having installed Spring Boot you can now create a template web project cal
 spring init -d=web -groupId=com.apm4all -artifactId=wordcount wordcount
 ```
 
-This application does not do much yet, but you can build it
+> We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency. 
+>
+> We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and available dependencies 
+>
+> There is another way you can get a template, using Spring Initializr \([http://start.spring.io](http://start.spring.io)\), but I chose to use command line in this book as it is easier to follow step-by-step.
+
+This application does not do much yet, but you can build it.
 
 ```
 mvn clean package
@@ -14,7 +20,7 @@ mvn clean package
 
 an execute it
 
-```bash
+```
 mvn spring-boot:run
 ```
 
@@ -47,7 +53,7 @@ So the application runs but is does not do anything useful, so lets stop the app
 touch ./src/main/java/com/apm4all/wordcount/WordCountController.java
 ```
 
-Not create the class and define the class as a @RestController and add the @RequestMapping handler method as shown below
+Now create the `WordCountController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
 
 ```java
 package com.apm4all.wordcount;
@@ -59,10 +65,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class WordCountController {
     @RequestMapping("/word-count")
     public String wordcount()   {
-        return "Counting nothing yet!";
+        return "Counting nothing yet!\n";
     }
 }
 ```
 
-When you run
+Run the application again
+
+```
+mvn spring-boot:run
+```
+
+Now, that you have exposed the _word-count_ REST resource, you can access it using curl, as follows
+
+```
+curl http://localhost:8080/word-count
+Counting nothing yet!
+```
+
+
 
