@@ -3,12 +3,12 @@
 After having installed Spring Boot you can now create a template web project called wordcount using the command line as follows.
 
 ```
-spring init -d=web -groupId=com.apm4all -artifactId=wordcount wordcount
+spring init -d=web -groupId=com.apm4all -artifactId=sentencestats sentencestats
 ```
 
-> We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency. 
+> We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency.
 >
-> We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and available dependencies 
+> We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and available dependencies
 >
 > There is another way you can get a template, using Spring Initializr \([http://start.spring.io](http://start.spring.io)\), but I chose to use command line in this book as it is easier to follow step-by-step.
 
