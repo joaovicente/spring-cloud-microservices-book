@@ -1,6 +1,6 @@
 # A simple web app
 
-Throughput this book we will develop a set of micro-services which given 
+Throughput this book we will demonstrate a develop a set of micro-services which will
 
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
