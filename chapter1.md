@@ -1,4 +1,4 @@
-# A simple web app
+# The first web app
 
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
