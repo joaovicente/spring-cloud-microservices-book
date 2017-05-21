@@ -97,7 +97,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SentenceStatsController {
-    @RequestMapping("/sentence-stats/{sentence}")
+    @RequestMapping(value="/sentence-stats/{sentence}", method=RequestMethod.GET)
     public String sentenceStats(@PathVariable String sentence) {
         return sentence + "\n";
     }
