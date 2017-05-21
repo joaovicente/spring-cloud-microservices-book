@@ -1,6 +1,6 @@
-# The first web app
+# The first web service
 
-## The bare bones
+## Just an app
 
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
@@ -49,6 +49,8 @@ All going well you will see output as follows
 
     2017-05-20 13:35:05.908  INFO 84795 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
     2017-05-20 13:35:05.912  INFO 84795 --- [           main] com.apm4all.wordcount.DemoApplication    : Started DemoApplication in 2.014 seconds (JVM running for 4.3)
+
+## Adding the REST endpoint
 
 So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`
 
