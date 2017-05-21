@@ -111,7 +111,7 @@ public class SentenceStatsController {
 After re-build and re-run, when we pass in a sentence, the service returns the sentence back
 
 ```
-curl "http://localhost:8080/sentence-stats/hello%20world"
+curl http://localhost:8080/sentence-stats/hello%20world
 hello world
 ```
 
@@ -120,14 +120,10 @@ hello world
 So far we are only returning an unstructured string, so we can do better than that. Let's instead return structured JSON containing:
 
 * The `sentence` requested
-* The `wordCount`
-* The `charCount`
+* The `numberOfWords`
+* The `numberOfChars`
 
-We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` and `charcount` microservices, so we are just going to define a Java Bean defining the response object.
-
-```
-./src/main/java/com/apm4all/sentencestats/SentenceStats.java
-```
+We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` and `charcount` microservices, so we are just going to define a Java Bean `./src/main/java/com/apm4all/sentencestats/SentenceStats.java` to encapsulate the response object.
 
 ```java
 package com.apm4all.sentencestats;
@@ -156,9 +152,9 @@ public class SentenceStats {
 }
 ```
 
-So we now modify `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java` slightly to constuct `SentenceStats` and return it. Spring 
+So we now modify `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java` slightly to constuct `SentenceStats` and return it, so that Spring MVC can convert it into JSON.
 
-```
+```java
 package com.apm4all.sentencestats;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -173,8 +169,14 @@ public class SentenceStatsController {
         return new SentenceStats(sentence);
     }
 }
-
 ```
 
+After re-build and re-run, when we pass in a sentence, the service now returns the JSON object 
 
+```
+curl http://localhost:8080/sentence-stats/hello%20world
+{"sentence":"hello world","numberOfWords":0,"numberOfChars":0}
+```
+
+So, we now have the requested sentence being returned but we will defer the calculation of the numberOfWords and numberOfChars, as we are going to delegate these calculations to other microservices, so we can illustrate microservice orchestration.
 
