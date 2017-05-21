@@ -10,7 +10,7 @@ Throughout this book we will demonstrate how to develop Spring microservices usi
 
 We will write a sentence-stats service which given a sentence, will call other services to derive specialised statistics such as word-count and char-count.
 
-* We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
+We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
 
 * Loosely couple services using [Eureka](https://github.com/Netflix/eureka) Auto Discover service
 * Leverage the client load balancing capabilities [Ribbon](https://github.com/netflix/ribbon)
