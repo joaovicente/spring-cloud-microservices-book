@@ -1,6 +1,6 @@
 # Introduction
 
-I have been fascinated and inspired by the generosity of open source projects such as Spring and Netflix. When I found out that Spring was adopting Netflix cloud OSS projects into [Spring Cloud](http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.RELEASE/) which have heavily influenced core services built inside AWS, I could not wait to try them.
+I have been fascinated and inspired by the generosity of open source projects such as [Spring](https://spring.io/) and [Netflix](https://netflix.github.io/). When I found out that Spring was adopting Netflix OSS projects into [Spring Cloud](http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.RELEASE/) which have heavily influenced core services built inside AWS, I could not wait to try them.
 
 I find that the best way to learn is by trying something out yourself, so my goal is to try to build-your-own microservices architecture that will work both on your local environment as well as in the Cloud.
 
@@ -8,9 +8,9 @@ I find that the best way to learn is by trying something out yourself, so my goa
 
 Throughout this book we will demonstrate how to develop Spring microservices using Spring Boot and Spring Cloud.
 
-We will write a sentence-stats service which given a sentence, will call other services to derive specialised statistics such as word-count and char-count.
+We will write a sentence-stats service which given a sentence, will call other services to derive specialised statistics such as word-count and char-count. We'll be keeping the application logic to a minimum so we focus primarily on the service interoperability.
 
-We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
+So the plan is to start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
 
 * Loosely couple services using [Eureka](https://github.com/Netflix/eureka) Auto Discover service
 * Leverage the client load balancing capabilities [Ribbon](https://github.com/netflix/ribbon)

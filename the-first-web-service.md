@@ -193,5 +193,5 @@ the service now returns the JSON object
 {"sentence":"hello world","numberOfWords":0,"numberOfChars":0}
 ```
 
-So, we now have the requested sentence being returned but we will defer the calculation of the numberOfWords and numberOfChars, as we are going to delegate these calculations to other microservices, so we can illustrate microservice orchestration.
+So, we now have the requested `sentence` being returned but we will defer the calculation of the `numberOfWords` and `numberOfChars`, as we are going to delegate these calculations to other microservices, so we can illustrate microservice interoperability.
 
