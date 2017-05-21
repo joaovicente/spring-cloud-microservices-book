@@ -1,5 +1,7 @@
 # The first web app
 
+## The bare bones
+
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
 ```
@@ -64,7 +66,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SentenceStatsController {
-    @RequestMapping("/sentence-stats")
+    @RequestMapping(value="/sentence-stats/{sentence}", method=RequestMethod.GET)
     public String sentenceStats()   {
         return "No stats yet!\n";
     }
