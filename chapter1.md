@@ -81,10 +81,15 @@ Run the application again
 mvn spring-boot:run
 ```
 
-Now, that you have exposed the _word-count_ REST resource, you can access it using curl, as follows
+Now, that you have exposed the _word-count_ REST resource, you can access it using curl.
 
 ```
 curl http://localhost:8080/sentence-stats
+```
+
+And get \(somewhat disapointing\) output
+
+```
 No stats yet!
 ```
 
@@ -108,16 +113,21 @@ public class SentenceStatsController {
 }
 ```
 
-After re-build and re-run, when we pass in a sentence, the service returns the sentence back
+After re-build and re-run, when we pass in a sentence
 
 ```
 curl http://localhost:8080/sentence-stats/hello%20world
+```
+
+the service returns the sentence back
+
+```
 hello world
 ```
 
 ## Structuring the output
 
-So far we are only returning an unstructured string, so we can do better than that. Let's instead return structured JSON containing:
+So far we are only returning an unstructured string, so we can do better than that. Let's instead return some JSON containing:
 
 * The `sentence` requested
 * The `numberOfWords`
@@ -171,10 +181,15 @@ public class SentenceStatsController {
 }
 ```
 
-After re-build and re-run, when we pass in a sentence, the service now returns the JSON object 
+After re-build and re-run, when we pass in a sentence
 
 ```
 curl http://localhost:8080/sentence-stats/hello%20world
+```
+
+the service now returns the JSON object
+
+```js
 {"sentence":"hello world","numberOfWords":0,"numberOfChars":0}
 ```
 
