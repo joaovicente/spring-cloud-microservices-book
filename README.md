@@ -10,13 +10,13 @@ Throughout this book we will demonstrate how to develop Spring microservices usi
 
 We will write a sentence-stats service which given a sentence, will call other services to derive specialised statistics such as word-count and char-count.
 
-We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
+* We will start with a simple set of services which will be tightly bound to pre-defined ports, and then we will evolve to introduce the ability to:
 
-* Loosely couple services using Eureka Auto Discover service
-* Leverage the client load balancing capabilities using Ribbon
-* Package and compose all microservices using Docker containers
-* Introduce an API gateway which can both do routing using Zuul
-* Illustrate how to protect and assess your services health using Hystrix
+* Loosely couple services using [Eureka](https://github.com/Netflix/eureka) Auto Discover service
+* Leverage the client load balancing capabilities [Ribbon](https://github.com/netflix/ribbon)
+* Package and compose all microservices using [Docker](https://www.docker.com/)
+* Introduce an API gateway which can both do routing using [Zuul](https://github.com/netflix/zuul)
+* Illustrate how to protect and assess your services health using [Hystrix](https://github.com/netflix/hystrix)
 
-
+Hopefully at the end of this journey we'll be in a position to confidently build microservices that can both be deployed in your local environment as well as in a cloud environment.
 
