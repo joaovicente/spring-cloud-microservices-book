@@ -55,7 +55,7 @@ All going well you will see output as follows
 So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`
 
 ```
-touch ./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java
+./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java
 ```
 
 Now create the `SentenceStatsController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
@@ -88,6 +88,8 @@ curl http://localhost:8080/sentence-stats
 No stats yet!
 ```
 
+## Handling input variable and producting output
+
 Let's enhance `SentenceStatsController.java` a little more to take in a sentence and return the sentence back
 
 ```java
@@ -111,6 +113,47 @@ After re-build and re-run, when we pass in a sentence, the service returns the s
 ```
 curl "http://localhost:8080/sentence-stats/hello%20world"
 hello world
+```
+
+## Structuring the output
+
+So far we are only returning an unstructured string, so we can do better than that. Let's instead return structured JSON containing:
+
+* The `sentence` requested
+* The `wordCount`
+* The `charCount`
+
+We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` and `charcount` microservices, so we are just going to define a Java Bean defining the response object.
+
+```
+./src/main/java/com/apm4all/sentencestats/SentenceStats.java
+```
+
+```java
+package com.apm4all.sentencestats;
+
+public class SentenceStats {
+
+    String sentence;
+    int numberOfWords;
+    int numberOfChars;
+
+    public SentenceStats(String sentence) {
+        this.sentence = sentence;
+    }
+
+    public int getNumberOfWords() {
+        return numberOfWords;
+    }
+
+    public int getNumberOfChars() {
+        return numberOfChars;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+}
 ```
 
 
