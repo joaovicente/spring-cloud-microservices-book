@@ -156,5 +156,25 @@ public class SentenceStats {
 }
 ```
 
+So we now modify `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java` slightly to constuct `SentenceStats` and return it. Spring 
+
+```
+package com.apm4all.sentencestats;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class SentenceStatsController {
+    @RequestMapping(value="/sentence-stats/{sentence}", method=RequestMethod.GET)
+    public SentenceStats sentenceStats(@PathVariable String sentence) {
+        return new SentenceStats(sentence);
+    }
+}
+
+```
+
 
 
