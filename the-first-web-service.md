@@ -1,4 +1,4 @@
-# The first web service
+# The sentence-stats service
 
 ## Just an app
 
@@ -51,8 +51,6 @@ All going well you will see output as follows
     2017-05-22 21:33:05.374  INFO 89819 --- [           main] c.a.s.SentenceStatsApplication           : Started SentenceStatsApplication in 2.44 seconds (JVM running for 4.664)Adding the REST endpoint
 
 So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`by editing `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java`
-
-
 
 Now create the `SentenceStatsController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
 
