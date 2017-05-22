@@ -5,12 +5,12 @@
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
 ```
-
 spring init \
     -d=web,cloud-eureka,cloud-hystrix,cloud-feign \
     -groupId=com.apm4all \
     -artifactId=sentence-stats \
-    -name=sentenceStats sentence-stats
+    -name=sentenceStats \
+    sentence-stats
 ```
 
 > We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency. We defined a few other dependencies which we will explore in later chapters when we explore service discovery and declarative REST clients.
@@ -52,7 +52,7 @@ All going well you will see output as follows
 
      ...
 
-    2017-05-22 21:33:05.369  INFO 89819 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+    2017-05-22 21:33:05.369  INFO 89819 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
     2017-05-22 21:33:05.374  INFO 89819 --- [           main] c.a.s.SentenceStatsApplication           : Started SentenceStatsApplication in 2.44 seconds (JVM running for 4.664)Adding the REST endpoint
 
 So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`by editing `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java`
@@ -72,6 +72,13 @@ public class SentenceStatsController {
         return "No stats yet!\n";
     }
 }
+```
+
+Let's also name the service `sentence-stats` and make it listen on port `8081` by editing `./src/main/resources/application.properties` as follows
+
+```
+spring.application.name = sentence-stats
+server.port = 8081
 ```
 
 Run the application again
