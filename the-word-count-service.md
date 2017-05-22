@@ -35,19 +35,19 @@ package com.apm4all.wordcount;
 
 public class WordCount {
     String sentence;
-    int wordCount;
+    int numberOfWords;
 
-    public WordCount(String sentence, int wordCount) {
+    public WordCount(String sentence, int numberOfWords) {
         this.sentence = sentence;
-        this.wordCount = wordCount;
+        this.numberOfWords = numberOfWords;
     }
 
     public String getSentence() {
         return sentence;
     }
 
-    public int getWordCount() {
-        return wordCount;
+    public int getNumberOfWords() {
+        return numberOfWords;
     }
 }
 ```
@@ -66,7 +66,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WordCountController {
     @RequestMapping(value="/word-count/{sentence}", method=RequestMethod.GET)
     public WordCount wordCount(@PathVariable String sentence) {
-        return new WordCount(sentence, 0);
+        return new WordCount(sentence , sentence.split(" ").length);
     }
 }
 ```
@@ -89,5 +89,5 @@ You should now see the actual word count set to 2
 {"sentence":"hello world","numberOfWords":2}
 ```
 
-TODO: Count words and update
+
 
