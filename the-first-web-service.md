@@ -137,7 +137,6 @@ So far we are only returning an unstructured string, so we can do better than th
 
 * The `sentence` requested
 * The `numberOfWords`
-* The `numberOfChars`
 
 We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` and `charcount` microservices, so we are just going to define a Java Bean `./src/main/java/com/apm4all/sentencestats/SentenceStats.java` to encapsulate the response object.
 
@@ -148,18 +147,14 @@ public class SentenceStats {
 
     String sentence;
     int numberOfWords;
-    int numberOfChars;
 
-    public SentenceStats(String sentence) {
+    public SentenceStats(String sentence, int numberOfWords) {
         this.sentence = sentence;
+        this.numberOfWords = numberOfWords;
     }
 
     public int getNumberOfWords() {
         return numberOfWords;
-    }
-
-    public int getNumberOfChars() {
-        return numberOfChars;
     }
 
     public String getSentence() {
@@ -182,7 +177,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SentenceStatsController {
     @RequestMapping(value="/sentence-stats/{sentence}", method=RequestMethod.GET)
     public SentenceStats sentenceStats(@PathVariable String sentence) {
-        return new SentenceStats(sentence);
+        return new SentenceStats(sentence, 0);
     }
 }
 ```
@@ -200,4 +195,61 @@ the service now returns the JSON object
 ```
 
 So, we now have the requested `sentence` being returned but we will defer the calculation of the `numberOfWords` and `numberOfChars`, as we are going to delegate these calculations to other microservices, so we can illustrate microservice interoperability.
+
+## Implementing a Client to word-count
+
+Even though we don't yet have a word-count service, let's create a the REST client logic in sentence-stats.
+
+For now we are going to use a pure RestTemplate hard-wired to the word-count which is going to be listening on `localhost:8082/word-count/{sentence}` 
+
+So, we'll create a new class to represent the response from word-count `./src/main/java/com/apm4all/sentencestats/WordCount.java`
+
+```java
+package com.apm4all.sentencestats;
+
+public class WordCount {
+
+    String sentence;
+    int numberOfWords;
+    
+    public int getNumberOfWords() {
+        return numberOfWords;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+}
+```
+
+And add the RestTemplate usage in `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java`
+
+```java
+package com.apm4all.sentencestats;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class SentenceStatsController {
+    @RequestMapping(value = "/sentence-stats/{sentence}", method = RequestMethod.GET)
+    public SentenceStats sentenceStats(@PathVariable String sentence) {
+    
+        // Make RestTemplate invoke the hard-wired URL and map response to WordCount Bean
+        RestTemplate restTemplate = new RestTemplate();
+        WordCount wordCount =
+                restTemplate.getForObject("http://localhost:8082/word-count/"+sentence, WordCount.class);
+    
+        // Use WordCount returned from the word-count service to set sentenceStats.numberOfWords
+        SentenceStats sentenceStats = new SentenceStats(sentence, wordCount.getNumberOfWords());
+        return sentenceStats;
+    }
+}
+
+```
+
+
 
