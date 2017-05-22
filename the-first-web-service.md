@@ -138,7 +138,7 @@ So far we are only returning an unstructured string, so we can do better than th
 * The `sentence` requested
 * The `numberOfWords`
 
-We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` and `charcount` microservices, so we are just going to define a Java Bean `./src/main/java/com/apm4all/sentencestats/SentenceStats.java` to encapsulate the response object.
+We are not going to compute the wordCount and charCount in this service as we want to illustrate `sentencestats` service interacting with `wordcount` microservice, so we are just going to define a Java Bean `./src/main/java/com/apm4all/sentencestats/SentenceStats.java` to encapsulate the response object.
 
 ```java
 package com.apm4all.sentencestats;
