@@ -28,27 +28,6 @@ spring.application.name = word-count
 server.port = 8082
 ```
 
-edit`./src/main/java/com/apm4all/wordcount/WordCountController.java`as follows:
-
-```java
-package com.apm4all.sentencestats;
-
-import com.apm4all.wordcount.WordCount;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class WordCountController {
-    @RequestMapping(value="/word-count/{sentence}", method=RequestMethod.GET)
-    public WordCount wordCount(@PathVariable String sentence) {
-        // TODO: Calculate word count
-        return new WordCount(sentence, 0);
-    }
-}
-```
-
 edit`./src/main/java/com/apm4all/wordcount/WordCount.java`as follows:
 
 ```java
@@ -73,5 +52,24 @@ public class WordCount {
 }
 ```
 
+edit`./src/main/java/com/apm4all/wordcount/WordCountController.java`as follows:
 
+```java
+package com.apm4all.wordcount;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class WordCountController {
+    @RequestMapping(value="/word-count/{sentence}", method=RequestMethod.GET)
+    public WordCount wordCount(@PathVariable String sentence) {
+        return new WordCount(sentence, 0);
+    }
+}
+```
+
+Now let's run it
 
