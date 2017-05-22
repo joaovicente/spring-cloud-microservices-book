@@ -5,7 +5,7 @@
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
 ```
-init -d=web -groupId=com.apm4all -artifactId=sentence-stats -name=sentenceStats sentence-stats
+spring init -d=web -groupId=com.apm4all -artifactId=sentence-stats -name=sentenceStats sentence-stats
 ```
 
 > We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency.
