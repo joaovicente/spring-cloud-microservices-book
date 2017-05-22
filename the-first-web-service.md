@@ -5,7 +5,7 @@
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
 ```
-spring init -d=web -groupId=com.apm4all -artifactId=sentence-stats sentence-stats
+init -d=web -groupId=com.apm4all -artifactId=sentence-stats -name=sentenceStats sentence-stats
 ```
 
 > We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency.
@@ -32,7 +32,7 @@ All going well you will see output as follows
     [INFO] Scanning for projects...
     [INFO]
     [INFO] ------------------------------------------------------------------------
-    [INFO] Building demo 0.0.1-SNAPSHOT
+    [INFO] Building sentenceStats 0.0.1-SNAPSHOT
     [INFO] ------------------------------------------------------------------------
 
     ...
@@ -47,16 +47,12 @@ All going well you will see output as follows
 
      ...
 
-    2017-05-20 13:35:05.908  INFO 84795 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
-    2017-05-20 13:35:05.912  INFO 84795 --- [           main] com.apm4all.sentencestats.DemoApplication    : Started DemoApplication in 2.014 seconds (JVM running for 4.3)
+    2017-05-22 21:33:05.369  INFO 89819 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+    2017-05-22 21:33:05.374  INFO 89819 --- [           main] c.a.s.SentenceStatsApplication           : Started SentenceStatsApplication in 2.44 seconds (JVM running for 4.664)Adding the REST endpoint
 
-## Adding the REST endpoint
+So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`by editing `./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java`
 
-So the application runs but is does not do anything useful, so lets stop the app now with Ctrl-C and let's create a `SentenceStatsController`
 
-```
-./src/main/java/com/apm4all/sentencestats/SentenceStatsController.java
-```
 
 Now create the `SentenceStatsController.java` class and define the class as a `@RestController` and add the `@RequestMapping` handler method as shown below
 
