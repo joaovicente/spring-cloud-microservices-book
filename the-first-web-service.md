@@ -5,10 +5,15 @@
 After having installed Spring Boot you can now create a template web project called sentencestats using the command line as follows.
 
 ```
-spring init -d=web -groupId=com.apm4all -artifactId=sentence-stats -name=sentenceStats sentence-stats
+
+spring init \
+    -d=web,cloud-eureka,cloud-hystrix,cloud-feign \
+    -groupId=com.apm4all \
+    -artifactId=sentence-stats \
+    -name=sentenceStats sentence-stats
 ```
 
-> We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency.
+> We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency. We defined a few other dependencies which we will explore in later chapters when we explore service discovery and declarative REST clients.
 >
 > We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and available dependencies
 >
