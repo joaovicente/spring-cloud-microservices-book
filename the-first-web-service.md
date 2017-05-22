@@ -90,7 +90,7 @@ mvn spring-boot:run
 Now, that you have exposed the _word-count_ REST resource, you can access it using curl.
 
 ```
-curl http://localhost:8080/sentence-stats
+curl http://localhost:8081/sentence-stats
 ```
 
 And get \(somewhat disapointing\) output
@@ -122,7 +122,7 @@ public class SentenceStatsController {
 After re-build and re-run, when we pass in a sentence
 
 ```
-curl http://localhost:8080/sentence-stats/hello%20world
+curl http://localhost:8081/sentence-stats/hello%20world
 ```
 
 the service returns the sentence back
@@ -185,7 +185,7 @@ public class SentenceStatsController {
 After re-build and re-run, when we pass in a sentence
 
 ```
-curl http://localhost:8080/sentence-stats/hello%20world
+curl http://localhost:8081/sentence-stats/hello%20world
 ```
 
 the service now returns the JSON object
@@ -194,9 +194,9 @@ the service now returns the JSON object
 {"sentence":"hello world","numberOfWords":0}
 ```
 
-So, we now have the requested `sentence` being returned but we will defer the calculation of the `numberOfWords` and `numberOfChars`, as we are going to delegate these calculations to other microservices, so we can illustrate microservice interoperability.
+So, we now have the requested `sentence` being returned but we will defer the calculation of the `numberOfWords` , as we are going to delegate these calculations to another microservice, so we can illustrate microservice interoperability.
 
-## Implementing a Client to word-count
+## Implementing a client to word-count
 
 Even though we don't yet have a word-count service, let's create a the REST client logic in sentence-stats.
 
