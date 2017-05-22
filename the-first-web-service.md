@@ -237,14 +237,11 @@ import org.springframework.web.client.RestTemplate;
 public class SentenceStatsController {
     @RequestMapping(value = "/sentence-stats/{sentence}", method = RequestMethod.GET)
     public SentenceStats sentenceStats(@PathVariable String sentence) {
-
-        // Make RestTemplate invoke the hard-wired URL and map response to WordCount Bean
         RestTemplate restTemplate = new RestTemplate();
         WordCount wordCount =
-                restTemplate.getForObject("http://localhost:8082/word-count/"+sentence, WordCount.class);
+                restTemplate.getForObject("http://localhost:8082/word-count/"+ sentence, WordCount.class);
 
-        // Use WordCount returned from the word-count service to set sentenceStats.numberOfWords
-        SentenceStats sentenceStats = new SentenceStats(sentence, wordCount.getNumberOfWords());
+        SentenceStats sentenceStats = new SentenceStats(wordCount.getSentence(), wordCount.getNumberOfWords());
         return sentenceStats;
     }
 }

@@ -71,5 +71,23 @@ public class WordCountController {
 }
 ```
 
-Now let's run it
+At this point \(assuming you still have the sentence-stats service running\) run word-count
+
+```
+mvn spring-boot:run
+```
+
+And execute
+
+```
+curl http://localhost:8081/sentence-stats/hello%20world
+```
+
+You should now see the actual word count set to 2
+
+```js
+{"sentence":"hello world","numberOfWords":2}
+```
+
+TODO: Count words and update
 
