@@ -191,7 +191,7 @@ curl http://localhost:8080/sentence-stats/hello%20world
 the service now returns the JSON object
 
 ```js
-{"sentence":"hello world","numberOfWords":0,"numberOfChars":0}
+{"sentence":"hello world","numberOfWords":0}
 ```
 
 So, we now have the requested `sentence` being returned but we will defer the calculation of the `numberOfWords` and `numberOfChars`, as we are going to delegate these calculations to other microservices, so we can illustrate microservice interoperability.
@@ -200,7 +200,7 @@ So, we now have the requested `sentence` being returned but we will defer the ca
 
 Even though we don't yet have a word-count service, let's create a the REST client logic in sentence-stats.
 
-For now we are going to use a pure RestTemplate hard-wired to the word-count which is going to be listening on `localhost:8082/word-count/{sentence}` 
+For now we are going to use a pure RestTemplate hard-wired to the word-count which is going to be listening on `localhost:8082/word-count/{sentence}`
 
 So, we'll create a new class to represent the response from word-count `./src/main/java/com/apm4all/sentencestats/WordCount.java`
 
@@ -211,7 +211,7 @@ public class WordCount {
 
     String sentence;
     int numberOfWords;
-    
+
     public int getNumberOfWords() {
         return numberOfWords;
     }
@@ -237,19 +237,37 @@ import org.springframework.web.client.RestTemplate;
 public class SentenceStatsController {
     @RequestMapping(value = "/sentence-stats/{sentence}", method = RequestMethod.GET)
     public SentenceStats sentenceStats(@PathVariable String sentence) {
-    
+
         // Make RestTemplate invoke the hard-wired URL and map response to WordCount Bean
         RestTemplate restTemplate = new RestTemplate();
         WordCount wordCount =
                 restTemplate.getForObject("http://localhost:8082/word-count/"+sentence, WordCount.class);
-    
+
         // Use WordCount returned from the word-count service to set sentenceStats.numberOfWords
         SentenceStats sentenceStats = new SentenceStats(sentence, wordCount.getNumberOfWords());
         return sentenceStats;
     }
 }
-
 ```
 
+Now given we have not implemented word-count, after re-build and re-run, when we pass in a sentence
 
+```
+curl http://localhost:8080/sentence-stats/hello%20world
+```
+
+the service now tries to call `http://localhost:8082/word-count/hello%20world`  but it fails because the word-count does not exist yet.
+
+```js
+{
+  "timestamp": 1495491436318,
+  "status": 500,
+  "error": "Internal Server Error",
+  "exception": "org.springframework.web.client.ResourceAccessException",
+  "message": "I/O error on GET request for \"http://localhost:8082/word-count/hello%20world\": Connection refused; nested exception is java.net.ConnectException: Connection refused",
+  "path": "/sentence-stats/hello%20world"
+}
+```
+
+In the next chapter we'll create the `word-count`service.
 
