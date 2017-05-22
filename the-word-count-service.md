@@ -28,7 +28,7 @@ spring.application.name = word-count
 server.port = 8082
 ```
 
-edit`./src/main/java/com/apm4all/wordcount/WordCountApplication.java`as follows:
+edit`./src/main/java/com/apm4all/wordcount/WordCountController.java`as follows:
 
 ```java
 package com.apm4all.sentencestats;
