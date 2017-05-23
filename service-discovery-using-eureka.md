@@ -65,3 +65,31 @@ When you go to [http://localhost:8761](http://localhost:8761) in your browser yo
 
 Notice however that there are no instances registered with Eureka server yet, but not for long...
 
+## Register word-count with Eureka
+
+If you remember we created word-count we added `cloud-eureka` as a dependency. This dependency is required to use an Eureka client.
+
+Let's go back to word-count
+
+`cd ../word-count`
+
+Now, to 
+
+```
+package com.apm4all.wordcount;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+@EnableDiscoveryClient
+@SpringBootApplication
+public class WordCountApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(WordCountApplication.class, args);
+	}
+}
+```
+
+
+
