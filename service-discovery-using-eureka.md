@@ -10,5 +10,40 @@ One thing at a time though, so let's start with Eureka first
 
 In a cloud production environment you will want to [deploy Eureka as a cluster](https://github.com/Netflix/eureka/wiki/Deploying-Eureka-Servers-in-EC2), but for the purpose of getting up-and-running in your local environment lets use the pre-backed Spring recipe.
 
+To create a Spring Boot packaged Eureka server all we need is the `cloud-eureka` dependency as shown below
+
+```
+spring init \
+    -d=cloud-eureka \
+    -groupId=com.apm4all \
+    -artifactId=eureka-service \
+    -name=eureka-service \
+    eureka-service
+```
+
+Go into eureka-service folder
+
+```
+cd eureka-service
+```
+
+Now add @EnableEurekaServer to `./src/main/java/com/apm4all/eurekaservice/EurekaServiceApplication.java` as shown below
+
+```java
+package com.apm4all.eurekaservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@EnableEurekaServer
+@SpringBootApplication
+public class EurekaServiceApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(EurekaServiceApplication.class, args);
+  }
+}
+```
+
 
 
