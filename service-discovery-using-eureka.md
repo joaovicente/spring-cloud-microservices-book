@@ -97,9 +97,7 @@ Now, after you re-run word-count
 mvn spring-boot:run
 ```
 
-And you go back to [http://localhost:8761](http://localhost:8761) in your browser you will see that word-count service instance has registered with Eureka.
-
-![](/assets/eureka-server-word-count-registered.png)
+And you go back to [http://localhost:8761](http://localhost:8761) in your browser you will see that word-count service instance has registered with Eureka.![](/assets/eureka-server-word-count-registered.png)
 
 ## Get sentence-stats to discover word-count service
 
