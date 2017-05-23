@@ -59,15 +59,9 @@ Now, let's start the Eureka server
 mvn spring-boot:run
 ```
 
-When you go to http://localhost:8761 in your browser you will should see the Eureka UI
+When you go to [http://localhost:8761](http://localhost:8761) in your browser you will should see the Eureka UI
 
-   ![](/assets/Screen Shot 2017-05-23 at 22.30.38.png)
+![](/assets/eureka-server-idle.png)
 
 Notice however that there are no instances registered with Eureka server yet, but not for long...
-
-
-
-
-
-
 
