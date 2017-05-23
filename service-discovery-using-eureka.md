@@ -14,7 +14,7 @@ To create a Spring Boot packaged Eureka server all we need is the `cloud-eureka`
 
 ```
 spring init \
-    -d=cloud-eureka \
+    -d=cloud-eureka-server \
     -groupId=com.apm4all \
     -artifactId=eureka-service \
     -name=eureka-service \
@@ -43,6 +43,20 @@ public class EurekaServiceApplication {
     SpringApplication.run(EurekaServiceApplication.class, args);
   }
 }
+```
+
+And add the following to ./src/main/resources/application.properties
+
+```
+server.port = 8761
+eureka.client.register-with-eureka = false
+eureka.client.fetch-registry = false
+```
+
+Now, let's start the Eureka server
+
+```
+mvn spring-boot:run
 ```
 
 
