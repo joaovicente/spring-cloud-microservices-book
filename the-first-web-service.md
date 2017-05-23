@@ -15,7 +15,7 @@ spring init \
 
 > We invoked spring init using `-d` option which defines comma-separated list of dependencies required. In this case since we want to create a web service, we picked the web dependency. We defined a few other dependencies which we will explore in later chapters when we explore service discovery and declarative REST clients.
 >
-> We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and available dependencies
+> We also chose to define the groupId and artifactId, but we could have left it to defaults. Type `spring help init` to learn more about the defaults and `spring init --list` to learn about available dependencies.
 >
 > There is another way you can get a template, using Spring Initializr \([http://start.spring.io](http://start.spring.io)\), but I chose to use command line in this book as it is easier to follow step-by-step.
 
