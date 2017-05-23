@@ -27,22 +27,23 @@ Go into eureka-service folder
 cd eureka-service
 ```
 
-Now add @EnableEurekaServer to `./src/main/java/com/apm4all/eurekaservice/EurekaServiceApplication.java` as shown below
+Now add `@EnableEurekaServer` to `./src/main/java/com/apm4all/eurekaservice/EurekaServiceApplication.java` as shown below
 
 ```java
 package com.apm4all.eurekaservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @EnableEurekaServer
 @SpringBootApplication
 public class EurekaServiceApplication {
-
-  public static void main(String[] args) {
-    SpringApplication.run(EurekaServiceApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(EurekaServiceApplication.class, args);
+    }
 }
+
 ```
 
 And add the following to ./src/main/resources/application.properties
