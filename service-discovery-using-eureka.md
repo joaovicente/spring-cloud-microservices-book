@@ -73,9 +73,9 @@ Let's go back to word-count
 
 `cd ../word-count`
 
-Now, to 
+And add `import org.springframework.cloud.client.discovery.EnableDiscoveryClient;` and `@EnableDiscoveryClient`to `./src/main/java/com/apm4all/wordcount/WordCountApplication.java`
 
-```
+```java
 package com.apm4all.wordcount;
 
 import org.springframework.boot.SpringApplication;
@@ -85,11 +85,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class WordCountApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(WordCountApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(WordCountApplication.class, args);
+    }
 }
 ```
 
-
+Now, re-run word-count
 
