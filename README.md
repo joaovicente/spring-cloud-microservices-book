@@ -1,10 +1,18 @@
+# About the book
+
+Written by Joao Vicente
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+
+[![](https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+
 # Introduction
 
 I have been fascinated and inspired by the generosity of open source projects such as [Spring](https://spring.io/) and Netflix. When I found out that Spring was adopting [Netflix OSS](https://netflix.github.io/) projects into [Spring Cloud](http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.RELEASE/) which have heavily influenced design of core services AWS has develeoped, I could not wait to try them.
 
 I find that the best way to learn is by trying something out yourself, so my goal is to try to build-your-own microservices architecture that will work both on your local environment as well as in the Cloud.
 
-[Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-10/installing/pcf-docs.html) offers an [out-of-the-box solution](https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka) for [multi-cloud](http://docs.pivotal.io/pivotalcf/1-10/refarch/index.html), which seems like a mitigation strategy for Cloud lock-in, while still utilizing pure-open-source \(Spring and Netflix\) building blocks. 
+[Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-10/installing/pcf-docs.html) offers an [out-of-the-box solution](https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka) for [multi-cloud](http://docs.pivotal.io/pivotalcf/1-10/refarch/index.html), which seems like a mitigation strategy for Cloud lock-in, while still utilizing pure-open-source \(Spring and Netflix\) building blocks.
 
 In this book, I'll be exploring the roll-your-own approach though, to learn how the Spring Cloud building blocks come together, primarily targetting a local dev deployment, but ensuring the architecture/approach can be deployed to a Cloud environment with little additional effort.
 
