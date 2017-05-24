@@ -16,7 +16,7 @@ So the plan is to start with a simple set of services which will be tightly boun
 * Leverage the client load balancing capabilities [Ribbon](https://github.com/netflix/ribbon)
 * Package and compose all microservices using [Docker](https://www.docker.com/)
 * Introduce an API gateway which can both do routing using [Zuul](https://github.com/netflix/zuul)
-* Illustrate how to protect and assess your services health using [Hystrix](https://github.com/netflix/hystrix)
+* Illustrate how to protect and control your services health using [Hystrix](https://github.com/netflix/hystrix)
 
 Hopefully at the end of this journey we'll be in a position to confidently build microservices that can both be deployed in your local environment as well as in a cloud environment.
 
