@@ -4,7 +4,9 @@ I have been fascinated and inspired by the generosity of open source projects su
 
 I find that the best way to learn is by trying something out yourself, so my goal is to try to build-your-own microservices architecture that will work both on your local environment as well as in the Cloud.
 
-[Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-10/installing/pcf-docs.html) offers an [out-of-the-box solution](https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka) for multi-cloud, which seems like a good option. In this book, I'll be exploring the roll-your-own approach, to learn how the Spring Cloud building blocks come together.
+[Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-10/installing/pcf-docs.html) offers an [out-of-the-box solution](https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka) for [multi-cloud](http://docs.pivotal.io/pivotalcf/1-10/refarch/index.html), which seems like a mitigation strategy for Cloud lock-in, while still utilizing pure-open-source \(Spring and Netflix\) building blocks. 
+
+In this book, I'll be exploring the roll-your-own approach though, to learn how the Spring Cloud building blocks come together, primarily targetting a local dev deployment, but ensuring the architecture/approach can be deployed to a Cloud environment with little additional effort.
 
 We will write a sentence-stats service which given a sentence, will call other services to derive specialised statistics such as word-count and char-count. We'll be keeping the application logic to a minimum so we focus primarily on the service interoperability.
 
