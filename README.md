@@ -1,11 +1,3 @@
-# About the book
-
-Written by [Joao Vicente](https://github.com/joaovicente)
-
-This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/3.0/)
-
-[![](https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/3.0/)
-
 # Introduction
 
 I have been fascinated and inspired by the generosity of open source projects such as [Spring](https://spring.io/) and Netflix. When I found out that Spring was adopting [Netflix OSS](https://netflix.github.io/) projects into [Spring Cloud](http://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.3.0.RELEASE/) which have heavily influenced design of core services AWS has develeoped, I could not wait to try them.
@@ -27,4 +19,12 @@ So the plan is to start with a simple set of services which will be tightly boun
 * Illustrate how to protect and assess your services health using [Hystrix](https://github.com/netflix/hystrix)
 
 Hopefully at the end of this journey we'll be in a position to confidently build microservices that can both be deployed in your local environment as well as in a cloud environment.
+
+---
+
+Written by [Joao Vicente](https://github.com/joaovicente)
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License](http://creativecommons.org/licenses/by-nc-nd/3.0/)
+
+[![](https://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png)](http://creativecommons.org/licenses/by-nc-nd/3.0/)
 
